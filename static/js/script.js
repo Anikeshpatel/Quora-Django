@@ -4,9 +4,10 @@
 
 
 // model related code
-var model = $('.model_container');
-var backdrop = $('.backdrop');
-var body = $('body');
+const model = $('.model_container');
+const backdrop = $('.backdrop');
+const body = $('body');
+const avatar = $('#avatar');
 
 function openModel(e) {
     model.fadeIn(200);
@@ -39,3 +40,11 @@ if(url.indexOf('question') > 0){
     removeActiveTab();
     $('#Home').addClass('active');
 }
+
+avatar.on('click', () => {
+    $('#logoutForm').submit()
+});
+
+$('#askQuestionBtn').on('click', () => {
+    $('#addQuestionForm').submit()
+});

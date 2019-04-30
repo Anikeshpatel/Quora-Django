@@ -243,11 +243,13 @@ body {
   font-size: 2.7rem;
 }
 
-.section__main__listView li p {
+.section__main__listView li .ansView {
   font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 1px;
   color: #666666;
+  text-align: justify;
+  white-space: pre-wrap;
 }
 
 .section__main__listView li .queTitle {

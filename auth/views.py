@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate, get_user_model
+from django.contrib.auth import login, authenticate, get_user_model, logout
 from .forms import LoginForm, SignupForm
+
+
 # Create your views here.
 
 def auth(request):
@@ -28,6 +30,8 @@ def login_handler(request):
 
 
 User = get_user_model()
+
+
 def signup(request):
     signupForm = SignupForm(request.POST or None)
     if signupForm.is_valid():
@@ -38,4 +42,12 @@ def signup(request):
         password = data['password']
         if User.objects.create_user(email, f"{name}@quora.com", password) is not None:
             return redirect('/')
+    return redirect('/auth')
+
+
+def logout_handler(request):
+    logout(request)
+    print(f"user is authenticated {request.user.is_authenticated}")
+    print("User is logout")
+    print(f"user is authenticated {request.user.is_authenticated}")
     return redirect('/auth')

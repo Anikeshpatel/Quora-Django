@@ -13,7 +13,8 @@
         </div>
     </li>
 
-    <li>
+    {% for question in questions %}
+        <li>
         <div class="addQueProfileView">
             <div style="float: left;">
                 <p>Question added - </p>
@@ -32,7 +33,7 @@
                     </svg> </div>
             </a>
         </div>
-        <h1 class="queTitle2">How do neural networks have overwhelming accuracy and still generalize well on test sets?</h1>
+        <h1 class="queTitle2">{{ question.question }}</h1>
         <div class="addQueProfileView">
             <div style="float: left;">
                 <p>No answer yet - </p>
@@ -75,8 +76,9 @@
                                     stroke-width="1.5" stroke-linecap="round"></path>
                             </g>
                         </svg> </a> </div> <span>Pass</span>
-            </div> 
+            </div>
         </div>
     </li>
+    {% endfor %}
 </ul>
 {% endblock content %}
