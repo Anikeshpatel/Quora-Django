@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<ul class="section__main__listView" id="listView">
+    <li>
+        <div class="addQueProfileView"><img src="{% static "img/test.png" %}" alt="Profile Pic">
+            <h3>{{ usrName }}</h3>
+        </div>
+        <h1 onclick="openModel(this)">What is your question?</h1>
+    </li>
+
+{% for i in listData %}
+    <li>
+        <div class="addQueProfileView"><img src="{% static "img/test.png" %}" alt="Profile Pic">
+            <div>
+                <h3 class="quePostedUsrName">{{ usrName }}</h3>
+                <p>{{ time }}</p>
+            </div>
+        </div>
+        <h1 class="queTitle">{{ title }}</h1>
+        <p> {{ desc }} </p>
+        <div class="bottomControll"><i class="fa fa-heart"></i><i class="fa fa-share"></i><span>{{ likes }}</span></div>
+    </li>
+{% endfor %}
+
+</ul>
+{% endblock content %}
